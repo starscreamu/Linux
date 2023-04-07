@@ -1,0 +1,78 @@
+mkdir -p /etc/ssl/adcs
+
+cd /etc/ssl/adcs
+
+openssl genrsa -out private.key 2048
+
+nano openssl.conf
+
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_extensions
+distinguished_name = dn
+
+[dn]
+C=RU
+ST=SPb
+L=SPb
+O=Global Security
+OU=IT Department
+emailAddress=hostmaster@starscream.ru #change
+CN = *.starscream.local #change
+
+[req_extensions]
+subjectAltName = @alter_name
+
+[alter_name]
+DNS.1 = *.starscream.local #change
+
+
+openssl req -new -key private.key -out request.csr -config openssl.conf
+
+Move request.csr to Windows
+
+On Windows:
+
+http://192.168.0.15/certsrv/
+
+Move the file .cer to Linux
+
+openssl x509 -inform der -in certnew.cer -out public.pem #convert to .pem
+
+2 files:
+private.key 
+public.pem 
+
+nano /etc/nginx/sites-available/default
+
+upstream backend { 
+ server 192.168.100.100:8080 fail_timeout=25; 
+ server 172.16.100.100:8080 fail_timeout=25; 
+} 
+ 
+server { 
+    listen 443 ssl; 
+    include snippers/snakeoil.conf;
+
+    server_name www.starscream.com; 
+
+ location / { 
+  proxy_pass http://backend ; 
+ } 
+}
+
+server { 
+   listen 80  default_server; 
+   server_name _; 
+   
+
+}
+
+NGINX config check - include sites-available path if needed
+
+nano /etc/nginx/snippets/snakeoil.conf
+
+include ssl_certificate /etc/ssl/adcs/public.pem
+Include ssl_certificate_key /etc/ssl/adcs/private.key
