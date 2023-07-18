@@ -6,7 +6,7 @@ BOOTPROTO=none # if you want dhcp type - BOOTPROTO=dhcp
 ONBOOT=yes
 PREFIX=24
 IPADDR=192.168.2.203
-Restart network service: systemctl restart network
+Restart network service: systemctl restart network / NetworkManager
 
 # static IP address on CentOS 7 or RHEL 7#
 HWADDR=00:08:A2:0A:BA:B8
