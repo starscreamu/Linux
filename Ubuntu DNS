@@ -1,0 +1,53 @@
+apt install -y bind9
+mkdir /opt/dns
+cp /etc/bind/db.local /opt/dns/demo.db
+chown -R bind:bind /opt/dns
+nano /etc/apparmor.d/usr.sbin.named
+    /opt/dns/** rw,
+systemctl restart apparmor.service
+   nano /etc/bind/named.conf.options
+image
+
+nano /etc/bind/named.conf.default-zones
+zone "demo.wsr" {
+   type master;
+   allow-transfer { any; };
+   file "/opt/dns/demo.db";
+};
+image
+
+nano /opt/dns/demo.db
+@ IN SOA demo.wsr. root.demo.wsr.(
+@ IN NS isp.demo.wsr.
+isp IN A 3.3.3.1
+www IN A 4.4.4.100
+www IN A 5.5.5.100
+internet CNAME isp.demo.wsr.
+int IN NS rtr-l.demo.wsr.
+rtr-l IN  A 4.4.4.100
+
+
+Isp - resolv.conf 
+nameservers 3.3.3.1
+
+systemctl restart bind9
+
+Windows:
+
+Install-WindowsFeature -Name DNS -IncludeManagementTools
+Add-DnsServerPrimaryZone -Name "int.demo.wsr" -ZoneFile "int.demo.wsr.dns"
+Add-DnsServerPrimaryZone -NetworkId 192.168.100.0/24 -ZoneFile "int.demo.wsr.dns"
+Add-DnsServerPrimaryZone -NetworkId 172.16.100.0/24 -ZoneFile "int.demo.wsr.dns"
+Add-DnsServerResourceRecordA -Name "web-l" -ZoneName "int.demo.wsr" -AllowUpdateAny -IPv4Address "192.168.100.100" -CreatePtr 
+Add-DnsServerResourceRecordA -Name "web-r" -ZoneName "int.demo.wsr" -AllowUpdateAny -IPv4Address "172.16.100.100" -CreatePtr 
+Add-DnsServerResourceRecordA -Name "srv" -ZoneName "int.demo.wsr" -AllowUpdateAny -IPv4Address "192.168.100.200" -CreatePtr 
+Add-DnsServerResourceRecordA -Name "rtr-l" -ZoneName "int.demo.wsr" -AllowUpdateAny -IPv4Address "192.168.100.254" -CreatePtr 
+Add-DnsServerResourceRecordA -Name "rtr-r" -ZoneName "int.demo.wsr" -AllowUpdateAny -IPv4Address "172.16.100.254" -CreatePtr 
+Add-DnsServerResourceRecordCName -Name "webapp1" -HostNameAlias "web-l.int.demo.wsr" -ZoneName "int.demo.wsr"
+Add-DnsServerResourceRecordCName -Name "webapp2" -HostNameAlias "web-r.int.demo.wsr" -ZoneName "int.demo.wsr"
+Add-DnsServerResourceRecordCName -Name "ntp" -HostNameAlias "srv.int.demo.wsr" -ZoneName "int.demo.wsr"
+Add-DnsServerResourceRecordCName -Name "dns" -HostNameAlias "srv.int.demo.wsr" -ZoneName "int.demo.wsr"
+
+https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04-ru
+
+https://github.com/storm39mad/DEMO2022
