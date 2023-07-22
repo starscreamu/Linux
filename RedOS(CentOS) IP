@@ -41,3 +41,12 @@ nmtui edit eth0
 #Some useful commands
 
 nmcli -p dev
+ip r
+ip address add IP/MASK dev LINK
+ip address del IP/MASK dev LINK
+ip route replace NETWORK(default) via GATEWAY(IP) dev LINK
+ip route del NETWORK(default) via OLD_GATEWAY(IP) dev LINK
+ip route change default via IP
+
+# IP CMDS ABOVE DO NOT SAVE AFTER RESTART THEY ARE USED AS EXPERIMENTS
+
