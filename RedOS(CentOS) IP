@@ -41,6 +41,10 @@ nmtui edit eth0
 #Some useful commands
 
 nmcli -p dev
+nmcli g s
+nmcli g h
+nmcli c s
+
 ip r
 ip address add IP/MASK dev LINK
 ip address del IP/MASK dev LINK
