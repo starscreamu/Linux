@@ -1,5 +1,5 @@
 https://computingforgeeks.com/configure-static-ip-on-rocky-almalinux/
-
+https://itdraft.ru/2020/06/17/upravleniye-i-nastroyka-seti-v-centos-7-8-s-pomoshu-utility-nmcli/
 #IP addr.
 
 Create a file named /etc/sysconfig/network-scripts/ifcfg-eth0 as follows:
