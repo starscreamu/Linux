@@ -11,7 +11,7 @@ dnf update join-to-domain
 
 nano /etc/sssd/sssd.conf
 use_fully_qualified_names = False
-d_gpo_access_control = permissive
+ad_gpo_access_control = permissive
 
 
 
