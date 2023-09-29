@@ -14,9 +14,6 @@ use_fully_qualified_names = False
 ad_gpo_access_control = permissive
 
 
-
-
-
 1. Настроить DNS
 2. Команда поиска домена:
    realm discover win.redos
