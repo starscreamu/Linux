@@ -1,0 +1,58 @@
+https://www.youtube.com/watch?v=mczVBwVWLwc&ab_channel=%D0%A0%D0%95%D0%94%D0%9E%D0%A1
+https://redos.red-soft.ru/base/arm/arm-domen/arm-msad/prejoindomain/
+https://www.youtube.com/watch?v=QI15QRxAFe8&ab_channel=%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80-%D1%8D%D1%82%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%21
+
+hostnamectl set-hostname <Имя компьютера>.<домен>
+
+nano /etc/hosts
+127.0.0.1 <Имя компьютера>.<домен> <Имя компьютера> #127.0.0.1  client1.win.redos client1
+
+dnf update join-to-domain
+
+nano /etc/sssd/sssd.conf
+use_fully_qualified_names = False
+d_gpo_access_control = permissive
+
+
+
+
+
+1. Настроить DNS
+2. Команда поиска домена:
+   realm discover win.redos
+3. Новое имя пк:
+   hostnamectl set-hostname client5
+   nano /etc/hosts
+   127.0.0.1 client5.win.redos client5 
+4. realm join -U -v admin win.redos
+5. Настройка sssd
+   nano /etc/sssd/sssd.conf
+   
+   use_fully_qualified_names = False
+   ad_gpo_access_control = permissive
+
+6. authconfig --enablemkhomedir --enablesssdauth --updateall
+7. nano /etc/krb5.conf
+   
+   вставить строку
+   default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+   и добавить 
+   default_realm = WIN.REDOS
+   
+8. Настройка samba, секция [Global]
+   
+    workgroup = WIN
+    realm = WIN.REDOS
+    security = ADS
+    idmap config * : range = 10000-99999
+    client min protocol = NT1
+    client max protocol = SMB3
+    dedicated keytab file = /etc/krb5.keytab
+    kerberos method = secrets and keytab
+    winbind refresh tickets = True
+    machine password timeout = 60
+    vfs objects = acl_xattr
+    map acl inherit = yes
+    store dos attributes = yes
+    
+9. Проверка: входим под доменным пользователем
