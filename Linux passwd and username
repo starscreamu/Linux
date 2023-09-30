@@ -12,3 +12,6 @@ sudo usermod -d /home/new_username -m new_username
 
 #File ownership permissions
 sudo chown -R new_username: /home/new_username
+
+#Full name change
+/etc/passwd
