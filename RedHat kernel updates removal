@@ -1,0 +1,5 @@
+uname -sr 
+rpm -qa kernel 
+rpm/dpkg --list | grep linux-image
+dnf/yum remove kernel-4.18.0-305.el8.x86_64 
+dnf remove --oldinstallonly --setopt installonly_limit=2 kernel
