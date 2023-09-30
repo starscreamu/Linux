@@ -1,0 +1,14 @@
+#Passwd change
+passwd username
+
+#Group passwd change
+passwd -g sales
+
+#Username change
+sudo usermod -l new_username old_username
+
+#Home directory update
+sudo usermod -d /home/new_username -m new_username
+
+#File ownership permissions
+sudo chown -R new_username: /home/new_username
