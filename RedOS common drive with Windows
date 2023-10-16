@@ -1,0 +1,3 @@
+nano /etc/fstab
+
+/dev/disk/by-uuid/1868B4E568B4C334 /mnt/1868B4E568B4C334 auto nosuid,nodev,nofail,x-gvfs-show 0 
