@@ -1,6 +1,10 @@
 https://habr.com/ru/companies/ruvds/articles/521784/
 https://linuxhint.com/install_asterisk_voip_ubuntu/
 
+!!!PORT NUMBERS!!!
+!!!SECURITY!!!
+!!!EXTERNAL ACCESS!!!
+
 sudo apt-get update
 sudo apt-get install asterisk
 
