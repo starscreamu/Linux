@@ -1,0 +1,57 @@
+https://habr.com/ru/companies/ruvds/articles/521784/
+https://linuxhint.com/install_asterisk_voip_ubuntu/
+
+sudo apt-get update
+sudo apt-get install asterisk
+
+sudo systemctl status asterisk
+
+sudo systemctl start asterisk
+sudo systemctl stop asterisk
+sudo systemctl restart asterisk
+
+ls /etc/asterisk
+
+sudo mv /etc/asterisk/sip.conf /etc/asterisk/sip.conf.b
+sudo mv /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.b
+
+sudo nano /etc/asterisk/sip.conf #Just paste it in
+[general]
+context=default
+allowoverlap=no
+udpbindaddr=0.0.0.0
+tcpenable=no
+tcpbindaddr=0.0.0.0
+transport=udp
+srvlookup=yes
+
+[1001]
+type=friend
+host=dynamic
+secret=1234
+
+[1002]
+type=friend
+host=dynamic
+secret=5678
+
+sudo nano /etc/asterisk/extensions.conf
+[general]
+static=yes
+writeprotect=no
+priorityjumping=no
+autofallthrough=yes
+clearglobalvars=no
+
+[default]
+exten => 1001,1,Dial(SIP/1001,10)
+exten => 1002,1,Dial(SIP/1002,10)
+
+sudo chown asterisk:asterisk /etc/asterisk/sip.conf /etc/asterisk/extensions.conf
+sudo chmod 640 /etc/asterisk/sip.conf /etc/asterisk/extensions.conf
+
+sudo systemctl restart asterisk
+sudo systemctl status asterisk
+
+sudo apt-get install linphone
+
