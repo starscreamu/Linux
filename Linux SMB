@@ -1,0 +1,12 @@
+install smbclient, samba, cifs-utils
+
+nano /etc/samba/smb.conf
+
+[sampleshare]
+        comment = Example Samba share
+        path = /sampleshare
+        browseable = Yes
+        public = yes
+        writable = yes
+
+mount -t cifs //192.168.10.5/WinSMB /mnt -o user=Starscream
