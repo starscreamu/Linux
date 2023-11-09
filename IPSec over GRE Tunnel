@@ -7,16 +7,14 @@ strictctlpolicy=yes
 uniqueids=no
 
 conn starscream_tunnel        #any name 
- left=10.10.10.1         #Outside interface of this router
- leftprotoport=47        #IP protocol 47 for GRE, can also use GRE
- right=30.30.30.2        #Outside interface of the cisco router
- rightprotoport=47       #IP protocol 47 for GRE, can also use GRE
- ike=aes256-sha256;modp4096 #ike=3des-sha1;dh14
- phase2alg=aes256-sha256;modp4096  #esp=aes-sha2 
+ left=10.10.10.1         #Outside interface of this router also gre tunnel ip addresses
+ right=30.30.30.2        #Outside interface of the cisco router also gre tunnel ip addresses
+ ike=aes256-sha1
+ phase2alg=aes256-sha1 
  authby=secret
  auto=start
  type=transport #Corresponds to cisco transform set "mode"
- pfs=no
+ pfs=yes
  
 #I use transport mode for less overhead, although you can use tunnel mode if you want. Just make sure all parameters on both sides match. Notice there is no policy to specify subnets to traverse the tunnel, the routing table determines that. Hence, route-based tunnel.
 
