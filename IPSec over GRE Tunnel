@@ -1,3 +1,4 @@
+https://poligon218.ru/2022/07/02/%D0%BD%D0%B0%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D1%82%D1%83%D0%BD%D0%BD%D0%B5%D0%BB%D0%B5%D0%B9-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0-%D1%82%D1%83%D0%BD%D0%BD%D0%B5%D0%BB%D0%B5%D0%B9/?ysclid=loqxz8loik493404669
 apt install libreswan -y
 
 #First edit the text file /etc/ipsec.conf in you favorite text editor, I use Vim. It should look something like this:
