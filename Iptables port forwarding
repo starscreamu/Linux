@@ -9,3 +9,8 @@ sudo apt-get install iptables-persistent
 sudo iptables-save > /etc/iptables/rules.v4
 sudo netfilter-persistent save
 sudo netfilter-persistent start
+
+#VIA PRE-UP
+nano /etc/network/interfaces
+
+pre-up iptables-restore /home/user/rules.v4 #the path may vary
