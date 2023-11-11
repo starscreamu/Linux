@@ -1,6 +1,7 @@
 iptables -vL -n -t nat
 iptables -t nat -A POSTROUTING -o ens224 -s 192.168.200.100 -j MASQUERADE  #PAT 
 iptables -t nat -A PREROUTING -p tcp -d 4.4.4.100 --dport 2244 -j  DNAT --to-destination 192.168.200.100:22 
+iptables -A FORWARD -p tcp --dport 22 -s 10.0.0.0/24 -j DROP # Block forwarding the traffic from tho=is network to port 22
 #Traffic from a specific IP or interface and port to another port 
 #Saving the configuration
 sudo apt-get install iptables-persistent
