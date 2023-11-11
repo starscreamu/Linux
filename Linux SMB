@@ -14,3 +14,8 @@ mount -t cifs //192.168.10.5/WinSMB /mnt -o user=Starscream
 
 #On Linux path is the name you configured in smb.conf
 ex - [sampleshare]
+
+
+cd /samba
+sudo chmod -R 0755 allaccess
+sudo chown -R nobody:nogroup allaccess/
