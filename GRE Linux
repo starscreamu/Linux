@@ -70,3 +70,14 @@ sudo iptables -t nat -A PREROUTING -d 198.51.100.1 -p TCP -m TCP --dport 80 -j D
 
 On a server restart all the things we did will be wiped out. To make sure the GRE tunnel and everything else is going to work after a restart we have to edit the file 
 /etc/rc.local and add all the commands before exit 0.
+
+/etc/network/interfaces и добавим в него следующую секцию:
+
+auto gre30
+  iface gre30 inet tunnel
+  address 10.10.10.1
+  netmask 255.255.255.252
+  mode gre
+  local 198.51.100.1
+  endpoint 203.0.113.1
+  ttl 255
