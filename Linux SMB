@@ -9,6 +9,7 @@ nano /etc/samba/smb.conf
         public = yes
         writable = yes
         read only = no
+
 mount -t cifs //192.168.10.5/WinSMB /mnt -o user=Starscream
 
 
