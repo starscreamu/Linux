@@ -14,3 +14,7 @@ sudo netfilter-persistent start
 nano /etc/network/interfaces
 
 pre-up iptables-restore /home/user/rules.v4 #the path may vary
+
+#Delete rules
+iptables -t nat -F
+iptables -F
