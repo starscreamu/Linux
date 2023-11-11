@@ -19,3 +19,6 @@ ex - [sampleshare]
 cd /samba
 sudo chmod -R 0755 allaccess
 sudo chown -R nobody:nogroup allaccess/
+
+nano /etc/fstab
+//192.168.0.39/shared_data /mnt/samba cifs username=myusername,password=mypassword 0 0
