@@ -3,4 +3,4 @@ nano /home/user/netwfd.sh
 sysctl -p
 
 nano /etc/crontab
-@reboot root /home/user/netwfd.sh
+@reboot root /home/user/netfwd.sh
