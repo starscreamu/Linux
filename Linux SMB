@@ -10,3 +10,7 @@ nano /etc/samba/smb.conf
         writable = yes
 
 mount -t cifs //192.168.10.5/WinSMB /mnt -o user=Starscream
+
+
+#On Linux path is the name you configured in smb.conf
+ex - [sampleshare]
