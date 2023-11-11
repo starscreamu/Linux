@@ -1,0 +1,6 @@
+nano /home/user/netwfd.sh
+#!/bin/bash 
+sysctl -p
+
+nano /etc/crontab
+@reboot root /home/user/netwfd.sh
