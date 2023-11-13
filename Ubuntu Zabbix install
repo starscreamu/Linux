@@ -1,5 +1,6 @@
 https://reasonableitservice.com/install-zabbix-6-4-on-ubuntu-server-22-04-1-in-under-10-minutes/
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-zabbix-to-securely-monitor-remote-servers-on-ubuntu-20-04
+https://www.zabbix.com/download?zabbix=6.4&os_distribution=ubuntu&os_version=22.04&components=server_frontend_agent&db=mysql&ws=apache
 
 sudo wget https://repo.zabbix.com/zabbix/6.3/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.3-3%2Bubuntu22.04_all.deb
 sudo dpkg -i zabbix-release_6.3-3+ubuntu22.04_all.deb
