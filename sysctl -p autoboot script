@@ -2,5 +2,10 @@ nano /home/user/netwfd.sh
 #!/bin/bash 
 sysctl -p
 
+#Or
+#!/bin/sh
+sleep 10 && sysctl --system
+exit 0
+
 nano /etc/crontab
 @reboot root /home/user/netfwd.sh
