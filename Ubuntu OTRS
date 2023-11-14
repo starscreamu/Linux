@@ -1,1 +1,44 @@
 https://orcacore.com/install-otrs-ubuntu-22-04/
+
+#With MySQL if someone has it already pre-installed
+
+sudo apt install perl libapache2-mod-perl2 libdbd-mysql-perl libtimedate-perl \
+libnet-dns-perl libnet-ldap-perl libio-socket-ssl-perl libpdf-api2-perl \
+libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl \
+libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
+libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl \
+libmail-imapclient-perl libtemplate-perl libmoo-perl libauthen-ntlm-perl \
+libjavascript-minifier-xs-perl libdbd-odbc-perl  libcss-minifier-xs-perl \
+libdbd-pg-perl libdatetime-perl apache2
+
+sudo useradd -r -m -d /opt/otrs -c "OTRS User" -s /usr/sbin/nologin otrs
+
+sudo wget https://otrscommunityedition.com/download/otrs-community-edition-6.0.39.tar.gz
+sudo tar xvfz otrs-community-edition-6.0.39.tar.gz -C /opt/otrs --strip-components=1
+
+sudo perl /opt/otrs/bin/otrs.CheckModules.pl
+
+sudo cp /opt/otrs/Kernel/Config.pm{.dist,}
+
+sudo perl -cw /opt/otrs/bin/cgi-bin/index.pl
+sudo perl -cw /opt/otrs/bin/cgi-bin/customer.pl
+sudo perl -cw /opt/otrs/bin/otrs.Console.pl
+sudo perl /opt/otrs/bin/otrs.SetPermissions.pl
+
+sudo mysql_secure_installation
+
+Enter current password for root (enter for none):
+    Set root password? [Y/n]: Y
+    Enter Password:
+    Remove anonymous users? [Y/n]: Y
+    Disallow root login remotely? [Y/n]: Y
+    Remove test database and access to it? [Y/n]:  Y
+    Reload privilege tables now? [Y/n]:  Y
+
+sudo mysql -u root -p
+
+create database otrsdb character set utf8 collate utf8_general_ci;
+create user otrs@localhost identified by 'password';
+grant all privileges on otrs.* to otrsuser@localhost;
+flush privileges;
+exit;
