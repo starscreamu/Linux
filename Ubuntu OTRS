@@ -42,3 +42,32 @@ create user otrs@localhost identified by 'password';
 grant all privileges on otrs.* to otrsuser@localhost;
 flush privileges;
 exit;
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf 
+
+#This is important
+max_allowed_packet   = 64M
+query_cache_size     = 32M
+innodb_log_file_size = 256M
+
+sudo systemctl restart mysql
+sudo ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/sites-enabled/
+sudo a2dissite 000-default.conf
+sudo a2enmod perl version deflate filter headers
+sudo chown -R otrs: /opt/otrs/
+sudo usermod -aG www-data otrs
+sudo /opt/otrs/bin/otrs.SetPermissions.pl --web-group=www-data
+
+sudo apachectl -t
+
+sudo systemctl restart apache2
+
+sudo ufw allow 80/tcp
+
+You can see the “OTRS Daemon not running error” on the above screen.
+
+To resolve this error, run the following commands on your server:
+
+sudo -Hiu otrs /opt/otrs/bin/otrs.Daemon.pl start
+sudo cp /opt/otrs/var/cron/otrs_daemon{.dist,}
+sudo -Hiu otrs /opt/otrs/bin/Cron.sh start
