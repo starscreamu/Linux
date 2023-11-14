@@ -1,1 +1,29 @@
 https://www.dmosk.ru/miniinstruktions.php?mini=rsyslog&ysclid=loebyrtdwz393880997
+https://infoit.com.ua/linux/kak-nastroit-rsyslog-v-ubuntu-20-04-lts/
+
+apt install rsyslog
+nano /etc/rsyslog/rsyslog.conf   
+
+$ModLoad imudp
+$UDPServerRun 514
+
+$ModLoad imtcp
+$InputTCPServerRun 514
+
+* в данном примере мы разрешили запуск сервера для соединений TCP и UDP на портах 514. На самом деле, можно оставить только один протокол, например, более безопасный и медленный TCP.
+
+После добавляем в конфигурационный файл строки:
+
+$template RemoteLogs,"/var/log/rsyslog/%HOSTNAME%/%PROGRAMNAME%.log"
+*.* ?RemoteLogs
+& ~
+
+systemctl restart rsyslog
+
+#Na cliente
+nano /etc/rsyslog/rsyslog.conf   
+#Enable sending system logs over UDP to rsyslog server
+*.* @rsyslog-server-ip:514
+
+#Enable sending system logs over TCP to rsyslog server
+*.* @@rsyslog-server-ip:514
