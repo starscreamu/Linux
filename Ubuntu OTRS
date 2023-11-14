@@ -68,6 +68,7 @@ You can see the “OTRS Daemon not running error” on the above screen.
 
 To resolve this error, run the following commands on your server:
 
+#It probably won't work so type this - sudo -u otrs -s   and run the following cmds as otrs user
 sudo -Hiu otrs /opt/otrs/bin/otrs.Daemon.pl start
 sudo cp /opt/otrs/var/cron/otrs_daemon{.dist,}
 sudo -Hiu otrs /opt/otrs/bin/Cron.sh start
