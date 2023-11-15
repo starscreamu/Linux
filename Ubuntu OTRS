@@ -9,7 +9,7 @@ libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
 libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl \
 libmail-imapclient-perl libtemplate-perl libmoo-perl libauthen-ntlm-perl \
 libjavascript-minifier-xs-perl libdbd-odbc-perl  libcss-minifier-xs-perl \
-libdbd-pg-perl libdatetime-perl apache2
+libdbd-pg-perl libdatetime-perl apache2 mariadb-server mariadb-client -y
 
 sudo useradd -r -m -d /opt/otrs -c "OTRS User" -s /usr/sbin/nologin otrs
 
