@@ -1,0 +1,8 @@
+https://itslinuxfoss.com/how-to-install-and-use-clamav-on-ubuntu-22-04/
+
+$ sudo apt install clamav clamav-daemon
+$ clamscan --version
+
+ sudo freshclam #update database
+$ sudo clamscan --infected --remove --recursive Documents/  #scanning the Documents dir
+$ sudo clamscan --infected --recursive --remove /  #scanning the whole system
