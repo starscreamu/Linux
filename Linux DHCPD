@@ -1,1 +1,21 @@
 https://wiki.debian.org/ru/DHCP_Server
+
+root# apt-get install isc-dhcp-server
+
+nano /etc/default/isc-dhcp-server
+INTERFACES="eth0"  
+
+nano /etc/dhcp/isc-dhcp-server  #or dhcpd.conf
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.10 192.168.1.50;
+  option routers 192.168.1.1;
+}
+
+#For a fixed ip by MAC
+host cinnamon {
+  hardware ethernet 00:0D:87:B3:AE:A6;
+  fixed-address 192.168.1.5;
+}
+
+systemctl restart isc-dhcp-server
