@@ -1,4 +1,5 @@
 https://orcacore.com/install-otrs-ubuntu-22-04/
+https://otrs.otrs.narkive.com/c6bkcZ5N/can-t-turn-off-secure-mode-in-core
 
 #With MySQL if someone has it already pre-installed
 
@@ -73,3 +74,20 @@ To resolve this error, run the following commands on your server:
 sudo -Hiu otrs /opt/otrs/bin/otrs.Daemon.pl start
 sudo cp /opt/otrs/var/cron/otrs_daemon{.dist,}
 sudo -Hiu otrs /opt/otrs/bin/Cron.sh start
+
+#Turning off the SecureMode to reinstall
+
+The option is not obvious. You turn it OFF by adding the line
+$Self->{SecureMode} = 1;
+to your Config.pm
+
+which seems like you would be turning it on not disabling it.
+
+here is the exceropt from the Default.pm file:
+
+# SecureMode
+# Disables the use of web-installer (installer.pl). Also disables if not
+# active, the GenericAgent, PackageManager and SQL Box, since it's possible
+# to use it for destructive write queries such as DROP DATABASE, and also to
+# steal user passwords.
+$Self->{SecureMode} = 0;
