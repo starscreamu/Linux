@@ -8,4 +8,3 @@ rm -r /var/www/html/moodle
 cd /opt/moodle
 cp -R /opt/moodle/ /var/www/html/
 chmod -R 0777 /var/www/html/moodle
-rm -r moodledata/
