@@ -1,0 +1,8 @@
+apt install ntp
+nano /etc/ntp.conf
+timedatectl set-timezone Europe/Moscow
+
+
+#On a client
+apt install ntpdate
+ntpdate 192.168.1.2
