@@ -10,7 +10,7 @@ nano /etc/samba/smb.conf
         writable = yes
         read only = no
 
-mount -t cifs //192.168.10.5/WinSMB /mnt -o user=Starscream
+mount -t cifs //192.168.10.5/sampleshare /mnt -o user=Starscream
 
 
 #On Linux path is the name you configured in smb.conf
