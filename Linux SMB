@@ -6,12 +6,17 @@ nano /etc/samba/smb.conf
         comment = Example Samba share
         path = /sampleshare
         browseable = Yes
-        public = yes
+        public = yes #no
+        valid users = admin #for ex
         writable = yes
         read only = no
 
-mount -t cifs //192.168.10.5/sampleshare /mnt -o user=Starscream
+mount -t cifs //192.168.10.5/sampleshare /mnt -o user=admin
 
+#SMB useradd and passw
+useradd admin
+smbpasswd -a admin
+systemctl restart smbd
 
 #On Linux path is the name you configured in smb.conf
 ex - [sampleshare]
