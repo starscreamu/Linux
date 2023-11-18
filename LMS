@@ -2,3 +2,10 @@ https://www.linode.com/docs/guides/how-to-install-moodle-on-ubuntu-server-2004/
 
 #Change php ver
 #Also apt install php
+
+#In case smth goes wrong
+rm -r /var/www/html/moodle
+cd /opt/moodle
+cp -R /opt/moodle/ /var/www/html/
+chmod -R 0777 /var/www/html/moodle
+rm -r moodledata/
