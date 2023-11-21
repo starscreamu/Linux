@@ -178,4 +178,5 @@ subjectAltName = @alter_name
 DNS.1 = *.starscream.local
 
 
+#Then cacert.pem convert to .crt and give them to clients
 
