@@ -1,3 +1,6 @@
+https://kifarunix.com/how-to-setup-a-local-ca-server-on-ubuntu/
+
+
 mkdir -p /etc/ssl/adcs
 
 cd /etc/ssl/adcs
