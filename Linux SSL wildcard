@@ -76,3 +76,73 @@ nano /etc/nginx/snippets/snakeoil.conf
 
 include ssl_certificate /etc/ssl/adcs/public.pem
 Include ssl_certificate_key /etc/ssl/adcs/private.key
+
+
+
+[ ca ]
+default_ca      = CA_default
+
+[ CA_default ]
+
+dir             = /etc/ssl/hqwork
+certs           = $dir/certs
+crl_dir         = $dir/crl
+database        = $dir/index.txt
+
+new_certs_dir   = $dir/newcerts
+
+certificate     = $dir/cacert.pem
+serial          = $dir/serial
+crlnumber       = $dir/crlnumber
+
+crl             = $dir/crl.pem
+private_key     = $dir/private/cakey.pem
+
+x509_extensions = usr_cert
+
+name_opt        = ca_default
+cert_opt        = ca_default
+
+
+
+default_days    = 3650
+default_crl_days= 30
+default_md      = default
+preserve        = no
+
+policy          = policy_match
+
+[ policy_match ]
+countryName     = match
+stateOrProvinceName     = match
+organizationName        = match
+organizationalUnitName  = optional
+commonName      = supplied
+emailAddress    = optional
+
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_extensions
+distinguished_name = dn
+
+[dn]
+C=RU
+ST=SPb
+L=SPb
+O=Global Security
+OU=IT Department
+emailAddress=hostmaster@starscream.ru
+
+[ usr_cert ]
+basicConstraints=CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+subjectAltName = @alter_name
+
+[alter_name]
+DNS.1 = *.hq.work
+
+
