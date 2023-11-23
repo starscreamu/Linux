@@ -5,6 +5,7 @@ sudo systemctl enable cups
 sudo cp /etc/cups/cupsd.conf /etc/cups/cupsd.conf.copy
 
 nano /etc/cupsd.conf 
+
 #Listen localhost:631
 Port 631
 
