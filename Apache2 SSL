@@ -1,3 +1,30 @@
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-22-04
 https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-22-04
 https://www.server-world.info/en/note?os=Ubuntu_22.04&p=httpd&f=3
+
+nano /etc/apache2/sites-available/000-default.conf
+<VirtualHost *:80>
+        ServerName ttt.starscream.local
+        Redirect / https://ttt.starscream.local/
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+<VirtualHost *:443>
+   ServerName ttt.starscream.local
+   DocumentRoot /var/www/html
+   SSLEngine on
+   SSLCertificateFile /home/user/str.local.crt
+   SSLCertificateKeyFile /home/user/str.local.key
+</VirtualHost>
+
+a2enmod ssl
