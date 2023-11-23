@@ -45,7 +45,9 @@ grant all on otrsdb.* to otrsuser@localhost identified by 'password';
 flush privileges;
 exit;
 
-sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf 
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf #For mysql
+nano /etc/mysql/mariadb.conf.d/50-server.cnf #For mariadb
+
 
 #This is important
 max_allowed_packet   = 64M
