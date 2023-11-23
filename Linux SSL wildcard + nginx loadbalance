@@ -81,6 +81,15 @@ include ssl_certificate /etc/ssl/adcs/public.pem
 Include ssl_certificate_key /etc/ssl/adcs/private.key
 
 
+
+
+
+#############################################################################################################################################################
+
+
+
+
+
 #Another openessl.cnf
 
 
