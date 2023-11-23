@@ -34,3 +34,5 @@ vi /etc/fstab
 UUID="ffa7c082-7613-4dbc-ae62-3f5508652cf6"    /mnt/raid/   ext4    defaults    0 0
 
 r!blkid | grep /dev/md0
+
+cat /proc/mdstat
