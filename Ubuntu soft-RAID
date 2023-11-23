@@ -1,8 +1,36 @@
 https://help.ubuntu.ru/wiki/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D1%8B%D0%B9_raid
-
+https://www.dmosk.ru/miniinstruktions.php?mini=mdadm&ysclid=lpb8ehf86k161197497
 https://losst.pro/kak-polzovatsya-cfdisk?ysclid=lp142r1ck7542004956 #cfdisk
 https://1cloud.ru/help/linux/kak-s-pomoshchyu-cfdisk-rasshirit-diskovoe-prostranstvo?ysclid=lp14aabo4p430544667
 
 https://www.linuxcapable.com/how-to-install-gparted-on-ubuntu-linux/  #gparted
 
+apt install mdadm
+lsblk
 
+Создание рейда
+Для сборки избыточного массива применяем следующую команду:
+
+mdadm --create --verbose /dev/md0 -l 5 -n 2 /dev/sd{b,c}
+
+* где:
+
+/dev/md0 — устройство RAID, которое появится после сборки; 
+-l 1 — уровень RAID; 
+-n 2 — количество дисков, из которых собирается массив; 
+/dev/sd{b,c} — сборка выполняется из дисков sdb и sdc.
+
+Создание файловой системы и монтирование массива
+Создание файловой системы для массива выполняется также, как для раздела, например:
+
+mkfs.ext4 /dev/md0
+
+df -T
+
+Открываем теперь fstab и добавляем строку:
+
+vi /etc/fstab
+
+UUID="ffa7c082-7613-4dbc-ae62-3f5508652cf6"    /mnt/raid/   ext4    defaults    0 0
+
+r!blkid | grep /dev/md0
