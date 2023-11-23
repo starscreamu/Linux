@@ -1,1 +1,38 @@
 https://www.ubuntu-server.com/tutorials/how-to-set-up-the-cups-print-server-on-ubuntu-20-04/
+apt install cups
+sudo systemctl start cups
+sudo systemctl enable cups
+sudo cp /etc/cups/cupsd.conf /etc/cups/cupsd.conf.copy
+
+nano /etc/cupsd.conf 
+#Listen localhost:631
+Port 631
+
+Browsing On
+
+#Restrict access to the server
+
+ Order allow,deny
+Allow All
+
+#Restrict access to the admin pages.
+
+Order allow,deny
+Allow 10.0.0.0/24
+
+
+sudo systemctl restart cups
+
+sudo usermod -aG lpadmin username
+
+#Printer driver installation
+
+sudo apt install hplip
+sudo apt install avahi-daemon
+sudo systemctl start avahi-daemon
+sudo systemctl enable avahi-daemon
+
+#Unlock ports
+
+sudo ufw allow 631/tcp
+sudo ufw allow 5353/udp
