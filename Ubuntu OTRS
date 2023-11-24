@@ -39,8 +39,8 @@ Enter current password for root (enter for none):
 sudo mysql -u root -p
 
 create database otrsdb character set utf8 collate utf8_general_ci;
-create user otrs@localhost identified by 'password';
-grant all privileges on otrs.* to otrsuser@localhost; #On mySQL
+create user otrsuser@localhost identified by 'password';
+grant all privileges on otrsdb.* to otrsuser@localhost; #On mySQL
 grant all on otrsdb.* to otrsuser@localhost identified by 'password';
 flush privileges;
 exit;
