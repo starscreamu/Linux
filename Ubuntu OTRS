@@ -54,7 +54,7 @@ max_allowed_packet   = 64M
 query_cache_size     = 32M
 innodb_log_file_size = 256M
 
-sudo systemctl restart mysql
+sudo systemctl restart mariadb
 sudo ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/sites-enabled/
 sudo a2dissite 000-default.conf
 sudo a2enmod perl version deflate filter headers
