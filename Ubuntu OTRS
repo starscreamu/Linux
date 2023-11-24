@@ -77,6 +77,9 @@ sudo -Hiu otrs /opt/otrs/bin/otrs.Daemon.pl start
 sudo cp /opt/otrs/var/cron/otrs_daemon{.dist,}
 sudo -Hiu otrs /opt/otrs/bin/Cron.sh start
 
+
+##############################################################################################################################
+
 #Turning off the SecureMode to reinstall
 
 The option is not obvious. You turn it OFF by adding the line
@@ -93,3 +96,14 @@ here is the exceropt from the Default.pm file:
 # to use it for destructive write queries such as DROP DATABASE, and also to
 # steal user passwords.
 $Self->{SecureMode} = 0;
+
+#############################################################################################################################
+
+#Possible errors
+
+nano /etc/mysql/my.cnf
+
+[mysqld]
+max_allowed_packet   = 64M
+query_cache_size     = 32M
+innodb_log_file_size = 256M
