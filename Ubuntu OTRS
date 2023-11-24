@@ -1,7 +1,7 @@
 https://orcacore.com/install-otrs-ubuntu-22-04/
 https://otrs.otrs.narkive.com/c6bkcZ5N/can-t-turn-off-secure-mode-in-core
 
-#With MySQL if someone has it already pre-installed
+#With MySQL if someone has it already pre-installed   ############################################## MYSQL IS NOT SUPPORTED ANYMORE!!!!
 
 sudo apt install perl libapache2-mod-perl2 libdbd-mysql-perl libtimedate-perl \
 libnet-dns-perl libnet-ldap-perl libio-socket-ssl-perl libpdf-api2-perl \
