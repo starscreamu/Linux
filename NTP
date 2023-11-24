@@ -1,5 +1,6 @@
 apt install ntp
 nano /etc/ntp.conf
+pool 127.0.0.1 iburst stratum 5
 timedatectl set-timezone Europe/Moscow
 
 
