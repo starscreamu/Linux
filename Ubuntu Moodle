@@ -26,3 +26,9 @@ mysql
 nano /etc/php/8.1/apache2/php.ini
 
 max_input_vars = 6000
+
+####################################################################################################################################
+
+#Well, if you changed your DOMAIN NAME go to /var/www/html/moodle/config.php and CHANGE the DOMAIN NAME
+
+$CFG->wwwroot   = 'https://www.starscream.test/moodle';
