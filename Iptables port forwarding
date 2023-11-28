@@ -19,3 +19,11 @@ pre-up iptables-restore /home/user/rules.v4 #the path may vary
 #Delete rules
 iptables -t nat -F
 iptables -F
+
+### !!! действие по умолчанию !!! ###
+#запрещаем FORWARD любых пакетов сервером 
+iptables -P FORWARD DROP
+
+### !!! действие по умолчанию !!! ###
+#запрещаем INPUT любых пакетов сервером
+iptables -P INPUT DROP
