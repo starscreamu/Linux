@@ -1,0 +1,7 @@
+https://www.coryfiala.com/how-to-install-tftp-on-ubuntu-22-04/
+
+apt install tftpd-hpa
+
+systemctl status tftpd-hpa
+
+### Default path is /srv/tftp/
