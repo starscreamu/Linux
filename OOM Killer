@@ -1,0 +1,8 @@
+https://interface31.ru/tech_it/2022/09/linux---nachinayushhim-chto-takoe-oom-killer-i-kak-on-rabotaet.html
+
+Как узнать количество очков, присвоенных процессу? Довольно просто, выполните команду:
+
+cat /proc/PID/oom_score
+Где PID - идентификатор процесса. При необходимости мы можем изменить количество очков используя коэффициент oom_adj:
+
+echo -17 > /proc/PID/oom_adj
