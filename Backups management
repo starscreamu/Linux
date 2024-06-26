@@ -1,2 +1,23 @@
 https://firstvds.ru/blog/rezervnoe-kopirovanie-na-linux
 https://jumpcloud.com/blog/how-to-use-rsync-remote-backup-linux-system
+
+############ Script example ###############
+
+ #!/bin/bash
+ 2
+ 3 backup_dir="/etc"
+ 4 dest_dir="/backups/dump"
+ 5
+ 6 mkdir -p $dest_dir
+ 7
+ 8 tar -czf $dest_dir/$(hostname -s)-$(date +"%d.%m.%y").tgz $backup_dir
+ 9
+10 rsync -a /backups/dump root@192.168.10.112:/backups
+
+###########################################
+
+nano /etc/crontab
+
+0 1 * * * root /путь_к_файлу/backup.sh
+###########################################
+backup.sh раз в сутки в 01:00.
