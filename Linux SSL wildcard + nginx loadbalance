@@ -1,5 +1,5 @@
 https://kifarunix.com/how-to-setup-a-local-ca-server-on-ubuntu/
-
+https://evilshit.wordpress.com/2013/06/19/how-to-create-your-own-pki-with-openssl/
 
 mkdir -p /etc/ssl/adcs
 
@@ -98,7 +98,7 @@ default_ca      = CA_default
 
 [ CA_default ]
 
-dir             = /etc/ssl/str
+dir             = /etc/ssl/(your path here)
 certs           = $dir/certs
 crl_dir         = $dir/crl
 database        = $dir/index.txt
