@@ -1,0 +1,8 @@
+2024-10-19T22:10:08.079Z 0: 
+
+----------------------------------------------
+2024-10-19T22:10:08.082Z 1: Discord starting: {"releaseChannel":"stable","version":"0.0.71"}, modulepath: /home/nikita-kotkin/.config/discord/0.0.71/modules
+2024-10-19T22:10:08.084Z 2: ✅ webContents.created web1 ""
+2024-10-19T22:10:08.087Z 3: ✅ window.created win1 "discord"
+2024-10-19T22:10:08.505Z 4: ✅ webContents.did-finish-load web1
+2024-10-19T22:26:11.322Z 5: before-quit

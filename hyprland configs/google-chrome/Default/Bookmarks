@@ -1,0 +1,58 @@
+{
+   "checksum": "08fa2c061c5f3105b7947c4a85100432",
+   "roots": {
+      "bookmark_bar": {
+         "children": [  ],
+         "date_added": "13373840595345652",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "date_added": "13373842575017491",
+            "date_last_used": "0",
+            "guid": "0a05d285-7b83-40b4-9c34-a7e48a977328",
+            "id": "5",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "starscreamu/Linux: Linux stuff and help guides for myself specifically or other people",
+            "type": "url",
+            "url": "https://github.com/starscreamu/Linux"
+         }, {
+            "date_added": "13373842880716705",
+            "date_last_used": "0",
+            "guid": "51fd9012-63ee-48bc-883a-9ec573531960",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Configuration via Config File · shadowsocks/shadowsocks Wiki",
+            "type": "url",
+            "url": "https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File"
+         } ],
+         "date_added": "13373840595345653",
+         "date_last_used": "0",
+         "date_modified": "13373842880716705",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13373840595345654",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

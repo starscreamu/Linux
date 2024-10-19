@@ -1,0 +1,35 @@
+2024-10-19T22:10:08.052Z [Modules] Modules initializing
+2024-10-19T22:10:08.052Z [Modules] Distribution: remote
+2024-10-19T22:10:08.052Z [Modules] Host updates: enabled
+2024-10-19T22:10:08.052Z [Modules] Module updates: enabled
+2024-10-19T22:10:08.052Z [Modules] Module install path: /home/nikita-kotkin/.config/discord/0.0.71/modules
+2024-10-19T22:10:08.052Z [Modules] Module installed file path: /home/nikita-kotkin/.config/discord/0.0.71/modules/installed.json
+2024-10-19T22:10:08.052Z [Modules] Module download path: /home/nikita-kotkin/.config/discord/0.0.71/modules/pending
+2024-10-19T22:10:08.453Z [Modules] Bootstrapping...
+2024-10-19T22:10:08.454Z [Modules] Installing discord_desktop_core@0 from /opt/discord/resources/bootstrap/discord_desktop_core.zip
+2024-10-19T22:10:08.456Z [Modules] Failed installing discord_desktop_core@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_desktop_core.zip'
+2024-10-19T22:10:08.456Z [Modules] Installing discord_erlpack@0 from /opt/discord/resources/bootstrap/discord_erlpack.zip
+2024-10-19T22:10:08.457Z [Modules] Failed installing discord_erlpack@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_erlpack.zip'
+2024-10-19T22:10:08.466Z [Modules] Installing discord_spellcheck@0 from /opt/discord/resources/bootstrap/discord_spellcheck.zip
+2024-10-19T22:10:08.468Z [Modules] Failed installing discord_spellcheck@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_spellcheck.zip'
+2024-10-19T22:10:08.468Z [Modules] Installing discord_utils@0 from /opt/discord/resources/bootstrap/discord_utils.zip
+2024-10-19T22:10:08.469Z [Modules] Failed installing discord_utils@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_utils.zip'
+2024-10-19T22:10:08.469Z [Modules] Installing discord_voice@0 from /opt/discord/resources/bootstrap/discord_voice.zip
+2024-10-19T22:10:08.470Z [Modules] Failed installing discord_voice@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_voice.zip'
+2024-10-19T22:10:08.470Z [Modules] Installing discord_zstd@0 from /opt/discord/resources/bootstrap/discord_zstd.zip
+2024-10-19T22:10:08.471Z [Modules] Failed installing discord_zstd@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_zstd.zip'
+2024-10-19T22:10:08.471Z [Modules] Finished module installations. [success: 0] [failure: 6]
+2024-10-19T22:10:08.471Z [Modules] Checking for host updates.
+2024-10-19T22:11:38.508Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT
+2024-10-19T22:11:58.526Z [Modules] Checking for host updates.
+2024-10-19T22:13:28.600Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT
+2024-10-19T22:14:08.633Z [Modules] Checking for host updates.
+2024-10-19T22:15:38.693Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT
+2024-10-19T22:16:38.736Z [Modules] Checking for host updates.
+2024-10-19T22:18:08.800Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT
+2024-10-19T22:19:08.860Z [Modules] Checking for host updates.
+2024-10-19T22:20:38.921Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT
+2024-10-19T22:21:38.980Z [Modules] Checking for host updates.
+2024-10-19T22:23:09.023Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT
+2024-10-19T22:24:09.080Z [Modules] Checking for host updates.
+2024-10-19T22:25:39.128Z [Modules] Host update failed: Error: ESOCKETTIMEDOUT

@@ -1,0 +1,18 @@
+2024/10/20-01:27:04.213 4 Reusing MANIFEST /home/nikita-kotkin/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
+2024/10/20-01:27:04.221 4 Recovering log #31
+2024/10/20-01:27:04.227 4 Reusing old log /home/nikita-kotkin/.config/google-chrome/Default/Local Storage/leveldb/000031.log 
+2024/10/20-01:27:24.218 5 Level-0 table #35: started
+2024/10/20-01:27:24.248 5 Level-0 table #35: 42615 bytes OK
+2024/10/20-01:27:24.250 5 Delete type=0 #31
+2024/10/20-01:51:03.791 5 Level-0 table #37: started
+2024/10/20-01:51:03.795 5 Level-0 table #37: 47931 bytes OK
+2024/10/20-01:51:03.797 5 Delete type=0 #34
+2024/10/20-01:51:03.797 5 Compacting 4@0 + 1@1 files
+2024/10/20-01:51:03.803 5 Generated table #38@0: 119 keys, 244409 bytes
+2024/10/20-01:51:03.803 5 Compacted 4@0 + 1@1 files => 244409 bytes
+2024/10/20-01:51:03.807 5 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/10/20-01:51:03.807 5 Delete type=2 #27
+2024/10/20-01:51:03.807 5 Delete type=2 #29
+2024/10/20-01:51:03.807 5 Delete type=2 #32
+2024/10/20-01:51:03.807 5 Delete type=2 #35
+2024/10/20-01:51:03.807 5 Delete type=2 #37
